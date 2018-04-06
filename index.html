@@ -4,8 +4,7 @@
 	<title>Nykaa</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0" />
 	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-	<link media="screen and (min-device-width: 501px)" rel="stylesheet" type="text/css" href="desktop.css">
-	<link content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" media="screen and (max-device-width: 500px)" rel="stylesheet" type="text/css" href="mobile.css">
+	<link rel="stylesheet" type="text/css" href="desktop.css">
 </head>
 <body>
 	<div id="intro-box">
@@ -85,7 +84,7 @@
 			<img class="cir1 dstc" id="dst2" src="assets/dst1.png">
 		</div>
 		<div class="rect-2" id="rect-d3">
-			<img class="cir1 dstc" id="dst3" src="assets/dst2.png">
+			<img class="cir1 dstc" id="dst3" src="assets/dst3.png">
 		</div>
 
 		<div class="rect-3" id="rect-f1">
@@ -101,7 +100,6 @@
 
 
 		<div id="choose-txt">Choose away!</div>
-		<div id="timer">02:00s</div>
 		
 		<img id="choose-preview" src="assets/skin1.png">
 		<img id="choose-preview-clr">
@@ -110,21 +108,30 @@
 		
 
 		
-		<div id="choose-info">Hurry up! Make your first choice the first one</div>
+		<div id="choose-info">Make your first choice the first one</div>
 		<div id="choose-num">Choice 1/3</div>
 
 		<img id="choose-okay" src="assets/check.png">
 
 	</div>
 	<div id="final-box">
-		<div id="final-txt">Choose your favourite</div>
-		<div id="final-box1"></div>
-		<div id="final-box2"></div>
-		<div id="final-box3"></div>
+		<div id="final-txt">View your choices</div>
+		<img id="final-box1" src="assets/skin1.png">
+		<img id="final-clr1" src="assets/nclr01.png">
+		<img src="assets/ndst1.png" id="final-dst1">
+		<img src="assets/nfin1.png" id="final-fin1">
+		<img id="final-box2" src="assets/skin2.png">
+		<img id="final-clr2" src="assets/nclr01.png">
+		<img src="assets/ndst1.png" id="final-dst2">
+		<img src="assets/nfin1.png" id="final-fin2">
+		<img id="final-box3" src="assets/skin3.png">
+		<img id="final-clr3" src="assets/nclr01.png">
+		<img src="assets/ndst1.png" id="final-dst3">
+		<img src="assets/nfin1.png" id="final-fin3">
 		<div id="star-box1"></div>
 		<div id="star-box2"></div>
 		<div id="star-box3"></div>
-		<div id="final-info">Rate your creations out of 5 stars</div>
+		
 	</div>
 
 	<div id="bye-box">
@@ -138,7 +145,7 @@
 <script type="text/javascript">
 		
 
-		/*
+		
 		$('#intro-box').fadeIn();
 		setTimeout(function(){
 			$('#welcome-text').fadeOut(10);
@@ -165,7 +172,7 @@
 			$('#choose-box').fadeIn();
 		})
 		
-	*/
+	
 
 
 	//select skin tone
@@ -175,27 +182,58 @@
 		$('#'+this.id).addClass('skin-box-img-sel');
 		_skin_tone=this.id.substring(8,9);
 		$('#choose-preview').attr('src','assets/skin'+_skin_tone+'.png');
+		$('#final-box1').attr('src','assets/skin'+_skin_tone+".png");
+		$('#final-box2').attr('src','assets/skin'+_skin_tone+".png");
+		$('#final-box3').attr('src','assets/skin'+_skin_tone+".png");
+		
 	});
 
 
+
+	_clr_=0;
 	$('.clrc').bind('click',function(){
 		_id=this.id.substring(3,5);
-		console.log(_id);
 		$('#choose-preview-clr').attr('src','assets/nclr'+_id+'.png');
+
+		_clr_=_id;
+
 	})
 
+
+	_dst_=0;
 	$('.dstc').bind('click',function(){
 		_id=this.id.substring(3,4);
-		console.log(_id);
 		$('#choose-preview-dst').attr('src','assets/ndst'+_id+'.png');
+		_dst_=_id;
+	
 	})
 
+
+	_fin_=0;
 	$('.finc').bind('click',function(){
 		_id=this.id.substring(3,4);
-		console.log(_id);
-		$('#choose-preview-fin').attr('src','assets/nfin'+_id+'.png');
+		$('#choose-preview-fin').attr('src','	assets/nfin'+_id+'.png');
+		_fin_=_id;
+
 	})
 
+
+	fx=[];
+	$('#choose-okay').bind('click',function(){
+		fx.push([_clr_,_dst_,_fin_]);
+		console.log(fx);
+
+		$('#final-clr'+fx.length).attr('src','assets/nclr'+_clr_+".png");
+		$('#final-dst'+fx.length).attr('src','assets/ndst'+_dst_+".png");
+		$('#final-fin'+fx.length).attr('src','assets/nfin'+_fin_+".png");
+
+		$('#choose-num').text('Choose '+(fx.length+1)+'/3');
+
+		if(fx.length==3){
+			$('#choose-box').fadeOut();
+			$('#final-box').fadeIn();
+		}
+	})
 
 
 </script>

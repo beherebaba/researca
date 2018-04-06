@@ -231,7 +231,7 @@ body,html{
 	box-shadow: 0 0 5px 5px #616161!important;
 }
 #choose-box{
-	
+	display: none;
 }
 
 #main-ring{
@@ -573,14 +573,19 @@ body,html{
 	height: 6vw;
 	border-radius: 50%;
 	top: 75vh;
-	left: 30vw;
+	left: 55vw;
+	cursor: pointer;
 }
 
+#choose-okay:hover{
+	box-shadow: 0 0 10px 10px green;
+}
 
 
 #final-box{
 	display: none;
 }
+
 
 
 #final-txt{
@@ -615,6 +620,94 @@ body,html{
 	height: 15vw;
 	left: 67.5vw;
 	background-color: white;
+}
+
+#final-clr1{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 17.5vw;
+	z-index: 6;
+	
+}
+
+#final-clr2{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 42.5vw;
+	z-index: 6;
+	
+}
+
+#final-clr3{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 67.5vw;
+	z-index: 6;
+	
+}
+#final-dst1{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 17.5vw;
+	z-index: 8;
+	
+}
+
+#final-dst2{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 42.5vw;
+	z-index: 8;
+	
+}
+
+#final-dst3{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 67.5vw;
+	z-index: 8;
+	
+}
+#final-fin1{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 17.5vw;
+	z-index: 10;
+	
+}
+
+#final-fin2{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 42.5vw;
+	z-index: 10;
+	
+}
+
+#final-fin3{
+	position: absolute;
+	top: 30vh;
+	width: 15vw;
+	height: 15vw;
+	left: 67.5vw;
+	z-index: 10;
+	
 }
 
 #final-info{
