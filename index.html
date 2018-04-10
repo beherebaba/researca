@@ -19,9 +19,16 @@
 	</div>
 	<div id="details-box">
 		<div id="details-intro">Tell us more</div>
-		<div id="details-text">Before you begin making your favourite nail polish, share some of your detilas with is so we know you better!</div>
-		<div id="details-info">I'm a <input class="text-inp" type="text" placeholder="(male/female)" id="gender-input">
-			from <input class="text-inp" type="text" id="place-input"> and at <input class="text-inp" type="text" id="age-input"> years of age, nail polish shopping is my <input class="text-inp" type="text" placeholder="(hobby/duty/obligation/etc)" id="gender-input">
+		<div id="details-text">Before you begin making your favourite nail polish, share some of your details with is so we know you better!</div>
+		<div id="details-info">I'm a <!--<input class="text-inp" type="text" placeholder="(male/female)" id="gender-input">-->
+            
+            <select>
+  <option value="volvo">Gender</option>
+  <option value="saab">Male</option>
+  <option value="opel">Female</option>
+</select>
+            
+			from <input class="text-inp" placeholder="Mumbai, Delhi" type="text" id="place-input"> and at <input class="text-inp" type="text" id="age-input"> years of age, nail polish shopping is my <input class="text-inp" type="text" placeholder="hobby/obligation/etc" id="gender-input">
 		</div>
 		<div id="details-next">Continue</div>
 	</div>
@@ -81,7 +88,7 @@
 			<img class="cir1 dstc" id="dst1" src="assets/dst1.png">
 		</div>
 		<div class="rect-2" id="rect-d2">
-			<img class="cir1 dstc" id="dst2" src="assets/dst1.png">
+			<img class="cir1 dstc" id="dst2" src="assets/dst2.png">
 		</div>
 		<div class="rect-2" id="rect-d3">
 			<img class="cir1 dstc" id="dst3" src="assets/dst3.png">
@@ -108,7 +115,7 @@
 		
 
 		
-		<div id="choose-info">Make your first choice the first one</div>
+		<div id="choose-info">Make your first choice the best one</div>
 		<div id="choose-num">Choice 1/3</div>
 
 		<img id="choose-okay" src="assets/check.png">
@@ -128,9 +135,27 @@
 		<img id="final-clr3" src="assets/nclr01.png">
 		<img src="assets/ndst1.png" id="final-dst3">
 		<img src="assets/nfin1.png" id="final-fin3">
-		<div id="star-box1"></div>
-		<div id="star-box2"></div>
-		<div id="star-box3"></div>
+		<div id="star-box1">
+           <img class="star" id="star1" src="assets/star-grey.png"/>
+           <img class="star" id="star2" src="assets/star-grey.png"/>
+           <img class="star" id="star3" src="assets/star-grey.png"/>
+           <img class="star" id="star4" src="assets/star-grey.png"/>
+           <img class="star" id="star5" src="assets/star-grey.png"/>
+        </div>
+		<div id="star-box2">
+            <img class="star" id="star6" src="assets/star-grey.png"/>
+           <img class="star" id="star7" src="assets/star-grey.png"/>
+           <img class="star" id="star8" src="assets/star-grey.png"/>
+           <img class="star" id="star9" src="assets/star-grey.png"/>
+           <img class="star" id="star10" src="assets/star-grey.png"/>
+        </div>
+		<div id="star-box3">
+            <img class="star" id="star11" src="assets/star-grey.png"/>
+           <img class="star" id="star12" src="assets/star-grey.png"/>
+           <img class="star" id="star13" src="assets/star-grey.png"/>
+           <img class="star" id="star14" src="assets/star-grey.png"/>
+           <img class="star" id="star15" src="assets/star-grey.png"/>
+        </div>
 		
 	</div>
 
@@ -143,7 +168,6 @@
 
 </body>
 <script type="text/javascript">
-		
 
 		
 		$('#intro-box').fadeIn();
@@ -228,6 +252,14 @@
 		$('#final-fin'+fx.length).attr('src','assets/nfin'+_fin_+".png");
 
 		$('#choose-num').text('Choose '+(fx.length+1)+'/3');
+        
+        if(fx.length==1) {
+            $('#choose-info').text("What's the other style that you've always wanted?");
+        }
+        
+        if(fx.length==2) {
+            $('#choose-info').text("This is your last chance! Be sure before the time runs out!");
+        }
 
 		if(fx.length==3){
 			$('#choose-box').fadeOut();
